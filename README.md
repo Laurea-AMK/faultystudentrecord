@@ -6,7 +6,7 @@ Thourgh this group work, you will learn how to read code, search and report secu
 
 ## Backgroud 
 
-Faultystudentrecord is a tiny program with-text based user inteface, which allows one the store basic information on students.  There are many serious  flaws and vulnarabilities in the program. You will practice finding, reporting and  and fixing them.  Please read more background information (including assessment criteria) in Canvas.
+You are given is a tiny program (see main.py) with-text based user inteface, which allows one the store basic information on students.  There are many serious  flaws and vulnarabilities in the program. You will practice finding, reporting and  and fixing them.  Please read more background information (including assessment criteria) in Canvas.
 
 ## Preparation steps
 
@@ -20,7 +20,7 @@ Faultystudentrecord is a tiny program with-text based user inteface, which allow
 2.  For finding issues that are more difficult to spot, search online for information about  "SQL injection" and "Directory Traversal".  
 3.  As soon as you find a security flaw, use GitHub to file a Security Vulnarability Report. Use this template as a basis of your vulnability report: [Vulnerability Report Templete by GitHub Security Lab] (https://github.com/github/securitylab/blob/main/docs/report-template.md).  The text-based report does not have mandatory fields, but you should provide as much information as possible.  It is particularly important to provide exact steps to reproduce the vulnerablity (in this case,  tested example code on how an attacker could use it).  There must be a seperate report for each vulnerability found.
 4. If you still have time, try fixing some of the found security  vulnerabilities.  Do not change the code in the main repository directly, but make changes to the branch called "lessfaultystudentrecord" and then send a pull request to the main repository. If you edit the code with GitHub Copilot, it may also help you spot new security  flaws.  If so, please test them and report them in accordance with instructions in step 2.
-5. If you still have time, fix some of the code.
+5. If you still have time, you can show your skills by making other reasonable improvements to the code.
     
 ## Submit and present
 1. Submit the link to your main repository in Canvas and make a 10-minute presentatation (see Canvas for more instructions).
