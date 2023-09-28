@@ -2,7 +2,7 @@
 
 ## Learning goals
 
-Thourgh this group work, you will learn how to read code, search and report security vulnarabilities and fix some of them. 🚀
+Thourgh this group work, you will learn how to read code, search and report security vulnarabilities.  You can also try to fix some of them. 🚀
 
 ## Backgroud 
 
