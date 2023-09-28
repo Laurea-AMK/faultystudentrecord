@@ -1,4 +1,4 @@
-# 🤓  Security Vulnaribilties Reporting
+# Security Vulnaribilties Reporting
 
 ## Learning outcomes 
 
