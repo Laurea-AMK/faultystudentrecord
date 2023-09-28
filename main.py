@@ -60,12 +60,12 @@ def add_student():
     contact = input("Enter student contact information: ")
     ssn = input("Enter student SSN: ")
     
-    image_path = input("Enter the image file name (e.g., student_card.png): ")
-    image_path = os.path.join("images", image_path)
-    
-    if not os.path.exists(image_path):
-        print("Image file not found. Student added without an image.")
-        image_path = None
+    image_path = input("Enter the image file name (e.g., student_card.png, press Enter to skip): ")
+    if image_path:
+        image_path = os.path.join("images", image_path)
+        if not os.path.exists(image_path):
+            print("Image file not found. Student added without an image.")
+            image_path = None
     
     cursor.execute("INSERT INTO students (student_number, name, contact, ssn, image_path) VALUES (?, ?, ?, ?, ?)",
                (student_number, name, contact, ssn, image_path))
@@ -141,3 +141,55 @@ def upload_image():
 def download_student_image():
     student_number = input("Enter the student number of the student whose image you want to download: ")
     
+    cursor.execute("SELECT image_path FROM students WHERE student_number = ?", (student_number,))
+    image_path = cursor.fetchone()
+    
+    if image_path:
+        image_path = image_path[0]
+        if os.path.exists(image_path):
+            with open(image_path, "rb") as f:
+                image_data = f.read()
+            new_image_name = input("Enter a new file name for the image (e.g., downloaded_image.png): ")
+            with open(new_image_name, "wb") as f:
+                f.write(image_data)
+            print(f"Image downloaded as '{new_image_name}'.")
+        else:
+            print("Image not found on the server.")
+    else:
+        print("Student not found.")
+
+# Main method
+def main():
+    login()  # Login
+    while True:
+        print("\nSelect an action:")
+        print("1. Add a student")
+        print("2. Add grades for a student")
+        print("3. Search for a student by student number")
+        print("4. Display all students")
+        print("5. Upload an image for a student")
+        print("6. Download a student's image")
+        print("7. Exit")
+        
+        choice = input("Enter your choice (1/2/3/4/5/6/7): ")
+        
+        if choice == "1":
+            add_student()
+        elif choice == "2":
+            add_grades()
+        elif choice == "3":
+            search_student()
+        elif choice == "4":
+            display_all_students()
+        elif choice == "5":
+            upload_image()
+        elif choice == "6":
+            download_student_image()
+        elif choice == "7":
+            break
+
+if __name__ == "__main__":
+    main()
+
+# Close the database connection
+conn.close()
